@@ -1,33 +1,34 @@
 package br.eti.urbano.mobile.exemploretrofit2.model;
 
 public class Company {
-    public String name;
-    public String catchPhrase;
+
+    public String nome;
+    public  String catchphrase;
     public String bs;
 
     public Company() {
     }
 
-    public Company(String name, String catchPhrase, String bs) {
-        this.name = name;
-        this.catchPhrase = catchPhrase;
+    public Company(String nome, String catchphrase, String bs) {
+        this.nome = nome;
+        this.catchphrase = catchphrase;
         this.bs = bs;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCatchPhrase() {
-        return catchPhrase;
+    public String getCatchphrase() {
+        return catchphrase;
     }
 
-    public void setCatchPhrase(String catchPhrase) {
-        this.catchPhrase = catchPhrase;
+    public void setCatchphrase(String catchphrase) {
+        this.catchphrase = catchphrase;
     }
 
     public String getBs() {
@@ -38,12 +39,5 @@ public class Company {
         this.bs = bs;
     }
 
-    @Override
-    public String toString() {
-        return "Company{" +
-                "name='" + name + '\'' +
-                ", catchphrase='" + catchPhrase + '\'' +
-                ", bs='" + bs + '\'' +
-                '}';
-    }
+
 }

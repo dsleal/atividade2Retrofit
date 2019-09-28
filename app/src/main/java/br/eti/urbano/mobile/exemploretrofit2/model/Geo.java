@@ -28,11 +28,5 @@ public class Geo {
         this.lng = lng;
     }
 
-    @Override
-    public String toString() {
-        return "Geo{" +
-                "lat='" + lat + '\'' +
-                ", lng='" + lng + '\'' +
-                '}';
-    }
+
 }

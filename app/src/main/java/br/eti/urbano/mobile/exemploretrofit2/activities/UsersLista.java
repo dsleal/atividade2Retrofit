@@ -57,18 +57,24 @@ public class UsersLista extends AppCompatActivity {
 
                 //criando colecao para o adapter
                 for (Users u : listUsers) {
+
                     HashMap<String, String> map = new HashMap<>();
                     map.put("id", u.getId()+" ");
                     map.put("name", u.getName());
                     map.put("userName", u.getUsername());
+                    map.put("email", u.getEmail());
+                    map.put("street",u.getAddress().getStreet());
+                    map.put("suite",u.getAddress().getSuite());
+                    map.put("city",u.getAddress().getCity());
+                    map.put("zipCode",u.getAddress().getZipcode());
 
                     colecao.add(map);
                     colecaoArrayAdapter.add(u.getName());
                 }
 
                 //Fazer o mapeamento da colecao com o layout do item
-                String[] de = {"id","name", "userName"};
-                int[] para = {R.id.txtId, R.id.txtName, R.id.txtUserName};
+                String[] de = {"id","name", "userName","email","street","suite","city","zipCode"};
+                int[] para = {R.id.txtId, R.id.txtName, R.id.txtUserName,R.id.txtEmail,R.id.txtStreet, R.id.txtSuite, R.id.txtCity, R.id.txtZipCode};
 
                 //SAIDA
                 listaTeste  = findViewById(R.id.lista);
@@ -77,9 +83,10 @@ public class UsersLista extends AppCompatActivity {
                 SimpleAdapter adapter =
                         new SimpleAdapter(getApplicationContext(),colecao,
                                 R.layout.activity_itens,de,para);
+
                 listaTeste.setAdapter(adapter);
 
-                //Professor não consegui popular a tela.
+                //Professor não consegui popular a tela
                 //Por esse motivo não coloquei todos os campos, montei a estrutura que pensei que seria correta.
                 //Diogo Leal
 
@@ -87,6 +94,7 @@ public class UsersLista extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Users>> call, Throwable t) {
+                listaTeste = findViewById(R.id.lista);
 
             }
         });

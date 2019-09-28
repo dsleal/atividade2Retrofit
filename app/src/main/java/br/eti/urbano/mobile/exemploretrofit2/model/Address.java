@@ -5,13 +5,12 @@ public class Address {
     public String suite;
     public String city;
     public String zipcode;
-    public String geo;
-
+    public Geo geo;
 
     public Address() {
     }
 
-    public Address(String street, String suite, String city, String zipcode, String geo) {
+    public Address(String street, String suite, String city, String zipcode, Geo geo) {
         this.street = street;
         this.suite = suite;
         this.city = city;
@@ -51,22 +50,13 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-    public String getGeo() {
+    public Geo getGeo() {
         return geo;
     }
 
-    public void setGeo(String geo) {
+    public void setGeo(Geo geo) {
         this.geo = geo;
     }
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", suite='" + suite + '\'' +
-                ", city='" + city + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", geo=" + geo +
-                '}';
-    }
+
 }

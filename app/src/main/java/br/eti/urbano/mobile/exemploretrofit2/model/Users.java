@@ -3,16 +3,17 @@ package br.eti.urbano.mobile.exemploretrofit2.model;
 public class Users {
     public int id;
     public String name;
-    public String username;
-    public String email;
-    public String address;
+    public  String username;
+    public  String email;
+    public Address address;
     public String phone;
     public String website;
-    public String company;
+    public Company company;
 
-    public Users() {    }
+    public Users() {
+    }
 
-    public Users(int id, String name, String username, String email, String address, String phone, String website, String company) {
+    public Users(int id, String name, String username, String email, Address address, String phone, String website, Company company) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -22,6 +23,7 @@ public class Users {
         this.website = website;
         this.company = company;
     }
+
 
     public int getId() {
         return id;
@@ -55,11 +57,11 @@ public class Users {
         this.email = email;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -79,24 +81,14 @@ public class Users {
         this.website = website;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id:" + getId() + ", " +
-                "name:" + getName() + ", " +
-                "username:" + getUsername() + ", " +
-                "email:" + getEmail() + ", " +
-                "phone:" + getPhone() + ", " +
-                "website:" + getWebsite() + " " +
-                "}";
-    }
+
 }
 

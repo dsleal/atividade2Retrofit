@@ -1,14 +1,18 @@
 package br.eti.urbano.mobile.exemploretrofit2.activities;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import br.eti.urbano.mobile.exemploretrofit2.R;
-import br.eti.urbano.mobile.exemploretrofit2.apadter.APIAdapter;
 import br.eti.urbano.mobile.exemploretrofit2.boostrap.APIClient;
 import br.eti.urbano.mobile.exemploretrofit2.model.Users;
 import br.eti.urbano.mobile.exemploretrofit2.resource.UserResource;
@@ -42,9 +46,42 @@ public class UsersLista extends AppCompatActivity {
 
                 //Se deu certo executa este método
                 listaTeste = findViewById(R.id.lista);
-                List<Users> users = response.body();
-                APIAdapter apiAdapter = new APIAdapter(getApplicationContext(), users);
-                listaTeste.setAdapter(apiAdapter);
+                List<Users> listUsers = response.body();
+
+                //PROCESSAMENTO
+                //Convertendo a lista em um List<HashMap<String,String>
+                //para o simpleAdapter
+                List<String> colecaoArrayAdapter = new ArrayList<>();
+
+                List<HashMap<String, String>> colecao = new ArrayList<>();
+
+                //criando colecao para o adapter
+                for (Users u : listUsers) {
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("id", u.getId()+" ");
+                    map.put("name", u.getName());
+                    map.put("userName", u.getUsername());
+
+                    colecao.add(map);
+                    colecaoArrayAdapter.add(u.getName());
+                }
+
+                //Fazer o mapeamento da colecao com o layout do item
+                String[] de = {"id","name", "userName"};
+                int[] para = {R.id.txtId, R.id.txtName, R.id.txtUserName};
+
+                //SAIDA
+                listaTeste  = findViewById(R.id.lista);
+
+                //SIMPLE ADAPTER
+                SimpleAdapter adapter =
+                        new SimpleAdapter(getApplicationContext(),colecao,
+                                R.layout.activity_itens,de,para);
+                listaTeste.setAdapter(adapter);
+
+                //Professor não consegui popular a tela.
+                //Por esse motivo não coloquei todos os campos, montei a estrutura que pensei que seria correta.
+                //Diogo Leal
 
             }
 
